@@ -11,7 +11,7 @@ import java.util.*
 data class NewsObjectResponse(
     @SerializedName("source")
     @Expose
-    val source: Source,
+    val source: NewsSourceObjectResponse,
 
     @SerializedName("author")
 
@@ -40,5 +40,5 @@ data class NewsObjectResponse(
 
     @SerializedName("content")
     @Expose
-    val content: String,
+    val content: String?,
 )

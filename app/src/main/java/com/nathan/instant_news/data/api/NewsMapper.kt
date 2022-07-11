@@ -1,6 +1,7 @@
 package com.nathan.instant_news.data.api
 
 import com.nathan.instant_news.data.model.News
+import com.nathan.instant_news.data.model.Source
 import com.nathan.instant_news.utils.EntityMapper
 import java.util.*
 import javax.inject.Inject
@@ -16,8 +17,12 @@ constructor() : EntityMapper<NewsObjectResponse, News> {
      * Create a News object from a NewsObjectResponse object
      */
     override fun mapFromEntity(entity: NewsObjectResponse): News {
+        val source = Source(
+            entity.source.id,
+            entity.source.name
+        )
         return News(
-            source = entity.source,
+            source = source,
             author = entity.author,
             title = entity.title,
             description = entity.description,

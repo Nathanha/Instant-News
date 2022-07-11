@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.nathan.instant_news.R
 import com.nathan.instant_news.data.model.News
 import com.nathan.instant_news.databinding.ActivityMainBinding
 import com.nathan.instant_news.ui.adapter.NewsAdapter
@@ -46,13 +47,14 @@ class MainActivity : AppCompatActivity() {
     private fun setupUI() {
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = NewsAdapter(arrayListOf())
-        binding.recyclerView.addItemDecoration(
-            DividerItemDecoration(
-                binding.recyclerView.context,
-                (binding.recyclerView.layoutManager as LinearLayoutManager).orientation
-            )
-        )
         binding.recyclerView.adapter = adapter
+        // Adding RecyclerView custom divider
+        val itemDecoration = DividerItemDecoration(
+            binding.recyclerView.context,
+            (binding.recyclerView.layoutManager as LinearLayoutManager).orientation
+        )
+        itemDecoration.setDrawable(resources.getDrawable(R.drawable.layer, null))
+        binding.recyclerView.addItemDecoration(itemDecoration)
     }
 
     /**
