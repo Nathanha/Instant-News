@@ -16,10 +16,26 @@ class NewsAdapter(
     private val news: ArrayList<News>
 ) : RecyclerView.Adapter<NewsAdapter.DataViewHolder>() {
 
+    private lateinit var adapterListener: OnItemClickListener
+
+    interface OnItemClickListener {
+        fun onItemClick(position: Int)
+    }
+
+    fun setOnItemClickListener(listener: OnItemClickListener) {
+        adapterListener = listener
+    }
+
     /**
      * Class to bind news data to the ItemLayout view
      */
-    class DataViewHolder(private val binding: ItemLayoutBinding) : RecyclerView.ViewHolder(binding.root) {
+    class DataViewHolder(private val binding: ItemLayoutBinding, listener: OnItemClickListener) : RecyclerView.ViewHolder(binding.root) {
+
+        init {
+            binding.container.setOnClickListener {
+                listener.onItemClick(adapterPosition)
+            }
+        }
 
         fun bind(news: News) {
             binding.textViewTitle.text = news.title
@@ -61,7 +77,7 @@ class NewsAdapter(
      */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataViewHolder {
         val binding = ItemLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return DataViewHolder(binding)
+        return DataViewHolder(binding, adapterListener)
     }
 
     /**
@@ -80,6 +96,13 @@ class NewsAdapter(
      */
     fun addData(list: List<News>) {
         news.addAll(list)
+    }
+
+    /**
+     * Get a specific News object with its position
+     */
+    fun getNews(position: Int): News {
+        return news[position]
     }
 
 }

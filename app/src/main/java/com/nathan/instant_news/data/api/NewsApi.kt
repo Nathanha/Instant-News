@@ -1,5 +1,6 @@
 package com.nathan.instant_news.data.api
 
+import com.nathan.instant_news.data.api.`object`.APIObjectResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 

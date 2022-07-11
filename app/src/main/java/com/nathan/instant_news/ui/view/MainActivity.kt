@@ -46,12 +46,11 @@ class MainActivity : AppCompatActivity() {
      * Setup the RecyclerView adapter
      */
     private fun setupUI() {
-
         supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM;
         supportActionBar?.setCustomView(R.layout.toolbar_layout);
-
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = NewsAdapter(arrayListOf())
+        setupItemsListener(adapter)
         binding.recyclerView.adapter = adapter
         // Adding RecyclerView custom divider
         val itemDecoration = DividerItemDecoration(
@@ -60,6 +59,18 @@ class MainActivity : AppCompatActivity() {
         )
         itemDecoration.setDrawable(resources.getDrawable(R.drawable.layer, null))
         binding.recyclerView.addItemDecoration(itemDecoration)
+    }
+
+    /**
+     * Listen list items click
+     */
+    private fun setupItemsListener(adapter: NewsAdapter) {
+        adapter.setOnItemClickListener(object : NewsAdapter.OnItemClickListener {
+            override fun onItemClick(position: Int) {
+                val news = adapter.getNews(position)
+                Toast.makeText(this@MainActivity, "You clicked on item $news", Toast.LENGTH_SHORT).show()
+            }
+        })
     }
 
     /**

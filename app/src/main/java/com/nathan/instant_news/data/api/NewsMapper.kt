@@ -1,9 +1,10 @@
 package com.nathan.instant_news.data.api
 
+import com.nathan.instant_news.data.api.`object`.APIObjectResponse
+import com.nathan.instant_news.data.api.`object`.NewsObjectResponse
 import com.nathan.instant_news.data.model.News
 import com.nathan.instant_news.data.model.Source
 import com.nathan.instant_news.utils.EntityMapper
-import java.util.*
 import javax.inject.Inject
 
 /**

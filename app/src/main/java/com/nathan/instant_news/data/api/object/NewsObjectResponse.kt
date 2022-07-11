@@ -1,8 +1,7 @@
-package com.nathan.instant_news.data.api
+package com.nathan.instant_news.data.api.`object`
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import com.nathan.instant_news.data.model.Source
 import java.util.*
 
 /**
