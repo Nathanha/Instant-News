@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.ActionBar
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nathan.instant_news.R
@@ -45,6 +46,10 @@ class MainActivity : AppCompatActivity() {
      * Setup the RecyclerView adapter
      */
     private fun setupUI() {
+
+        supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM;
+        supportActionBar?.setCustomView(R.layout.toolbar_layout);
+
         binding.recyclerView.layoutManager = LinearLayoutManager(this)
         adapter = NewsAdapter(arrayListOf())
         binding.recyclerView.adapter = adapter
