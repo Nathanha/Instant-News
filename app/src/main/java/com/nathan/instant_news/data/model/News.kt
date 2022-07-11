@@ -1,5 +1,6 @@
 package com.nathan.instant_news.data.model
 
+import java.io.Serializable
 import java.util.*
 
 /**
@@ -14,4 +15,4 @@ data class News(
     val urlToImage: String?,
     val publishedAt: Date,
     val content: String?,
-)
+) : Serializable

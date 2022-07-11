@@ -1,5 +1,6 @@
 package com.nathan.instant_news.ui.view
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -62,13 +63,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     /**
-     * Listen list items click
+     * Listen news list items click
      */
     private fun setupItemsListener(adapter: NewsAdapter) {
         adapter.setOnItemClickListener(object : NewsAdapter.OnItemClickListener {
             override fun onItemClick(position: Int) {
-                val news = adapter.getNews(position)
-                Toast.makeText(this@MainActivity, "You clicked on item $news", Toast.LENGTH_SHORT).show()
+                val intent = Intent(binding.recyclerView.context, NewsDetail::class.java)
+                intent.putExtra("news", adapter.getNews(position))
+                startActivity(intent)
             }
         })
     }

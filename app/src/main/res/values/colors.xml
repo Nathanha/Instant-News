@@ -11,4 +11,5 @@
     <color name="orange_primary_variant">#C6A700</color>
     <color name="orange_secondary">#FFB300</color>
     <color name="orange_secondary_variant">#FFE54C</color>
+    <color name="line_color">#C8C8C8</color>
 </resources>

@@ -11,6 +11,7 @@ interface NewsApi {
     @GET("top-headlines")
     suspend fun getNews(
         @Query("apiKey") apiKey: String,
-        @Query("country") country: String
+        @Query("country") country: String,
+        @Query("pageSize") pageSize: Int
     ): APIObjectResponse
 }

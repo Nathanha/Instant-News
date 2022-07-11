@@ -8,7 +8,6 @@ import com.nathan.instant_news.data.model.News
 import com.nathan.instant_news.databinding.ItemLayoutBinding
 import java.util.*
 
-
 /**
  * Adapter class to populate RecyclerView with data
  */
@@ -18,10 +17,16 @@ class NewsAdapter(
 
     private lateinit var adapterListener: OnItemClickListener
 
+    /**
+     * Interface to define a click listener on the RecyclerView items
+     */
     interface OnItemClickListener {
         fun onItemClick(position: Int)
     }
 
+    /**
+     * Init the class click listener
+     */
     fun setOnItemClickListener(listener: OnItemClickListener) {
         adapterListener = listener
     }
@@ -32,6 +37,7 @@ class NewsAdapter(
     class DataViewHolder(private val binding: ItemLayoutBinding, listener: OnItemClickListener) : RecyclerView.ViewHolder(binding.root) {
 
         init {
+            // Set the RecyclerView onClickListener
             binding.container.setOnClickListener {
                 listener.onItemClick(adapterPosition)
             }
