@@ -20,13 +20,11 @@ import retrofit2.converter.gson.GsonConverterFactory
 import java.text.SimpleDateFormat
 import java.util.*
 
-@ExperimentalCoroutinesApi
-@DelicateCoroutinesApi
 @RunWith(JUnit4::class)
 class MainRepositoryTest {
 
     private lateinit var mainRepository: MainRepository
-    lateinit var newsApi: NewsApi
+    private lateinit var newsApi: NewsApi
 
     @Before
     fun setup() {

@@ -34,8 +34,8 @@ class MainViewModelTest {
 
     private val mainThreadSurrogate = newSingleThreadContext("UI thread")
     private lateinit var mainRepository: MainRepository
-    lateinit var mainViewModel: MainViewModel
-    lateinit var newsMapper: NewsMapper
+    private lateinit var mainViewModel: MainViewModel
+    private lateinit var newsMapper: NewsMapper
 
     @Mock
     lateinit var newsApi: NewsApi
