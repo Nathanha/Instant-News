@@ -37,6 +37,7 @@ Projet développé dans le cadre d'un exercice ayant pour but de démontrer mes 
 * Ajout d'un Swipe-to-Refresh sur la liste pour la recharger.
 * Ajouter une base de données locale à l'application pour stocker les actualités chargées. Cela permettrait l'accès à ces dernières sans connexion à Internet.
 * Ne pas recharger les activités lors de la rotation du téléphone.
+* Supprimer la fin du contenu d'un article qui contient le nombre de caractères restants non visibles (exemple: [+1000 chars]).
 
 ### Organisation
 
