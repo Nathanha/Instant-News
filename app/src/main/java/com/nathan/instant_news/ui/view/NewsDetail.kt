@@ -53,7 +53,7 @@ class NewsDetail : AppCompatActivity() {
      * Format the date to display in the view
      */
     private fun getFormattedDate(date: Date): String {
-        val dt = SimpleDateFormat("dd/mm/yyyy - hh:mm")
+        val dt = SimpleDateFormat("dd/MM/yyyy - hh:mm")
         return dt.format(date)
     }
 }

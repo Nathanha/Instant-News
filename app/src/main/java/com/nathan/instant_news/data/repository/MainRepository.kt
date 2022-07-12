@@ -19,7 +19,6 @@ class MainRepository(private val newsApi: NewsApi, private val newsMapper: NewsM
      */
     suspend fun getNews(): Flow<DataState<List<News>>> = flow {
         emit(DataState.Loading)
-        delay(1000)
         try {
             val networkNews = newsApi.getNews("b1becf42d5c64a5c9e55f3f18c502725", "fr", 50)
             val news = newsMapper.mapFromResponse(networkNews)

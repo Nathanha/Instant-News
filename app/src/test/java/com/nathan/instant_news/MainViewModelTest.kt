@@ -57,6 +57,9 @@ class MainViewModelTest {
         mainThreadSurrogate.close()
     }
 
+    /**
+     * Test MainViewModel getNews() method with returned data
+     */
     @Test
     fun getNewsTest(): Unit = runBlocking {
         val news = News(
@@ -86,16 +89,19 @@ class MainViewModelTest {
         }
     }
 
+    /**
+     * Test MainViewModel getNews() method with empty returned data
+     */
     @Test
     fun `empty news list test`(): Unit = runBlocking {
         launch(Dispatchers.Main) {  // Launch in the mainThreadSurrogate dispatcher
 
-            val mock: MainRepository = mock {
+            val mainRepositoryMock: MainRepository = mock {
                 onBlocking { getNews() } doReturn flow {
                     emit(DataState.Success(listOf<News>()))
                 }
             }
-            mainViewModel = MainViewModel(mock)
+            mainViewModel = MainViewModel(mainRepositoryMock)
             mainViewModel.setStateEvent(MainStateEvent.GetNewsEvents)
 
             val result = mainViewModel.dataState.getOrAwaitValue() as DataState.Success<List<News>>
