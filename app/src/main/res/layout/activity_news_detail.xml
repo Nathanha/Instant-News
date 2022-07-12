@@ -18,8 +18,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
+            style="@style/TextAppearance.AppCompat.Large"
             android:textStyle="bold"
-            android:textColor="@color/black"
             android:textSize="22sp"
             tools:text="@tools:sample/lorem"
             app:layout_constraintTop_toTopOf="parent" />
@@ -48,8 +48,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
+            style="@style/TextAppearance.AppCompat.Large"
             android:textStyle="bold"
-            android:textColor="@color/black"
             android:textSize="18sp"
             tools:text="@tools:sample/lorem"
             app:layout_constraintTop_toBottomOf="@id/date" />
@@ -80,7 +80,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:textColor="@color/black"
+            style="@style/TextAppearance.AppCompat.Large"
             android:textSize="18sp"
             tools:text="@tools:sample/lorem"
             app:layout_constraintTop_toBottomOf="@id/imageLine" />
