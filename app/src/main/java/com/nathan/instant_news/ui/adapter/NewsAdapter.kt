@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.nathan.instant_news.data.model.News
 import com.nathan.instant_news.databinding.ItemLayoutBinding
+import com.nathan.instant_news.utils.Utils
 import java.util.*
 
 /**
@@ -45,35 +46,13 @@ class NewsAdapter(
 
         fun bind(news: News) {
             binding.textViewTitle.text = news.title
-            val date = getFormattedDate(news.publishedAt)
+            val date = Utils.getFormattedDateForDisplay(news.publishedAt)
             binding.textViewDate.text = date
             binding.textViewSource.text = news.source.name
             if (news.urlToImage != null) {
                 Glide.with(binding.imageViewPicture.context)
                     .load(news.urlToImage)
                     .into(binding.imageViewPicture)
-            }
-        }
-
-        /**
-         * Get the number of minutes, hours or days between now and the date param
-         */
-        private fun getFormattedDate(date: Date): String {
-            val now = Date()
-            val diff: Long = now.time - date.time
-            val minutes = (diff / (1000 * 60))
-            val hours = minutes/60
-            val days = hours/24
-            return when {
-                days > 0 -> {
-                    "Il y a $days " + (if (days > 1) "jours" else "jour")
-                }
-                hours > 0 -> {
-                    "Il y a $hours " + (if (hours > 1) "heures" else "heure")
-                }
-                else -> {
-                    "Il y a $minutes " + (if (minutes > 1) "minutes" else "minute")
-                }
             }
         }
     }
